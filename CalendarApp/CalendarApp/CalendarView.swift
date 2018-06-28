@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol EnableSubmitDelegate {
+    func enableSubmitButton()
+}
+
 struct Style {
     static var bgColor = UIColor.white
     static var monthViewLblColor = UIColor.white
@@ -28,6 +32,7 @@ class CalenderView: UIView, UICollectionViewDelegate, UICollectionViewDataSource
     var presentYear = 0
     var todaysDate = 0
     var firstWeekDayOfMonth = 0   //(Sunday-Saturday 1-7)
+    var delegate: EnableSubmitDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -41,6 +46,11 @@ class CalenderView: UIView, UICollectionViewDelegate, UICollectionViewDataSource
         initializeView()
     }
     
+    var currentSelectedDate: Int? {
+        didSet {
+           
+        }
+    }
     
     func initializeView() {
         currentMonthIndex = Calendar.current.component(.month, from: Date())
@@ -85,16 +95,20 @@ class CalenderView: UIView, UICollectionViewDelegate, UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell=collectionView.cellForItem(at: indexPath)
         cell?.backgroundColor = UIColor.brown
-        let lbl = cell?.subviews[2] as! UILabel
+        let lbl = cell?.subviews[1] as! UILabel
         lbl.textColor=UIColor.white
+        if let labelText = Int(lbl.text!) {
+            currentSelectedDate = labelText
+            delegate?.enableSubmitButton()
+        }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         let cell=collectionView.cellForItem(at: indexPath)
         cell?.backgroundColor=UIColor.clear
-        let lbl = cell?.subviews[2] as! UILabel
-        let button = cell?.subviews[1] as! UIButton
-        button.isHidden = false
+       
+        let lbl = cell?.subviews[1] as! UILabel
         lbl.textColor = Style.activeCellLblColor
     }
     

@@ -20,16 +20,14 @@ class CalendarVC: UIViewController {
         self.navigationController?.navigationBar.isTranslucent = false
         self.view.backgroundColor = Style.bgColor
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add Event", style: .plain, target: self, action: #selector(addAnEvent(sender:)))
-    
+        self.navigationItem.rightBarButtonItem?.isEnabled = false 
         view.addSubview(calenderView)
+        calenderView.delegate = self
         calenderView.translatesAutoresizingMaskIntoConstraints = false
         calenderView.topAnchor.constraint(equalTo: view.topAnchor, constant: 10).isActive=true
         calenderView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -12).isActive=true
         calenderView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 12).isActive=true
         calenderView.heightAnchor.constraint(equalToConstant: 365).isActive=true
-        
-       
-      
     }
     
     
@@ -41,9 +39,18 @@ class CalendarVC: UIViewController {
     
    
     @objc func addAnEvent(sender: UIButton) {
-        let createEventVC = CreateEventViewController()
-        navigationController?.pushViewController(createEventVC, animated: true)
+        let destination = CreateEventViewController()
+        destination.day = calenderView.currentSelectedDate
+        destination.month = 6
+        destination.year = 2018
+        navigationController?.pushViewController(destination, animated: true)
+        
     }
     
 }
 
+extension CalendarVC: EnableSubmitDelegate {
+    func enableSubmitButton() {
+        navigationItem.rightBarButtonItem?.isEnabled = true
+    }
+}
