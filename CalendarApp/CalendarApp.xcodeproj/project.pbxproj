@@ -18,9 +18,10 @@
 		81D31C6520D7161B0004268F /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D31C6420D7161B0004268F /* CalendarView.swift */; };
 		81D31C6720D72CBC0004268F /* MonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D31C6620D72CBC0004268F /* MonthView.swift */; };
 		81D31C6920D72E4D0004268F /* WeekdayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D31C6820D72E4D0004268F /* WeekdayView.swift */; };
-		81E2FA2120E173C600608656 /* SeeEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E2FA2020E173C600608656 /* SeeEvents.swift */; };
-		81E2FA2520E2EC5200608656 /* createEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E2FA2420E2EC5200608656 /* createEventView.swift */; };
+		81E2FA2120E173C600608656 /* SeeEventsCreated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E2FA2020E173C600608656 /* SeeEventsCreated.swift */; };
+		81E2FA2520E2EC5200608656 /* CreateEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E2FA2420E2EC5200608656 /* CreateEventView.swift */; };
 		81E2FA2720E3F3F800608656 /* CreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E2FA2620E3F3F800608656 /* CreateEventViewController.swift */; };
+		81E2FA2920E6E6B400608656 /* seeEventsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E2FA2820E6E6B400608656 /* seeEventsTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,9 +38,10 @@
 		81D31C6420D7161B0004268F /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		81D31C6620D72CBC0004268F /* MonthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthView.swift; sourceTree = "<group>"; };
 		81D31C6820D72E4D0004268F /* WeekdayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekdayView.swift; sourceTree = "<group>"; };
-		81E2FA2020E173C600608656 /* SeeEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeEvents.swift; sourceTree = "<group>"; };
-		81E2FA2420E2EC5200608656 /* createEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = createEventView.swift; sourceTree = "<group>"; };
+		81E2FA2020E173C600608656 /* SeeEventsCreated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeEventsCreated.swift; sourceTree = "<group>"; };
+		81E2FA2420E2EC5200608656 /* CreateEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventView.swift; sourceTree = "<group>"; };
 		81E2FA2620E3F3F800608656 /* CreateEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventViewController.swift; sourceTree = "<group>"; };
+		81E2FA2820E6E6B400608656 /* seeEventsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = seeEventsTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,23 +74,64 @@
 		81D31C5120D693460004268F /* CalendarApp */ = {
 			isa = PBXGroup;
 			children = (
-				81D31C5220D693460004268F /* AppDelegate.swift */,
-				81E2FA2620E3F3F800608656 /* CreateEventViewController.swift */,
-				81E2FA2420E2EC5200608656 /* createEventView.swift */,
-				81D31C5420D693460004268F /* CalendarVC.swift */,
-				81D31C6420D7161B0004268F /* CalendarView.swift */,
-				81E2FA2020E173C600608656 /* SeeEvents.swift */,
-				81ADF6D320DEF01100498BC9 /* CalenderCell.swift */,
-				81D31C6620D72CBC0004268F /* MonthView.swift */,
-				81D31C6820D72E4D0004268F /* WeekdayView.swift */,
-				81ADF6CD20DD63B700498BC9 /* NetworkHelper.swift */,
-				81ADF6CF20DD737E00498BC9 /* EventAPIClient.swift */,
-				81ADF6D120DD740700498BC9 /* EventModel.swift */,
-				81D31C5920D6934A0004268F /* Assets.xcassets */,
-				81D31C5B20D6934A0004268F /* LaunchScreen.storyboard */,
+				81E2FA2B20E6EB0D00608656 /* ViewControllers */,
+				81E2FA2C20E6EB2000608656 /* Views */,
+				81E2FA2A20E6EA7A00608656 /* Cells */,
+				81E2FA2D20E6EB3C00608656 /* Models */,
+				81E2FA2E20E6EB6600608656 /* SupportingFiles */,
 				81D31C5E20D6934A0004268F /* Info.plist */,
 			);
 			path = CalendarApp;
+			sourceTree = "<group>";
+		};
+		81E2FA2A20E6EA7A00608656 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				81E2FA2820E6E6B400608656 /* seeEventsTableViewCell.swift */,
+				81ADF6D320DEF01100498BC9 /* CalenderCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		81E2FA2B20E6EB0D00608656 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				81E2FA2620E3F3F800608656 /* CreateEventViewController.swift */,
+				81D31C5420D693460004268F /* CalendarVC.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		81E2FA2C20E6EB2000608656 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				81E2FA2420E2EC5200608656 /* CreateEventView.swift */,
+				81E2FA2020E173C600608656 /* SeeEventsCreated.swift */,
+				81D31C6620D72CBC0004268F /* MonthView.swift */,
+				81D31C6820D72E4D0004268F /* WeekdayView.swift */,
+				81D31C6420D7161B0004268F /* CalendarView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		81E2FA2D20E6EB3C00608656 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				81ADF6D120DD740700498BC9 /* EventModel.swift */,
+				81ADF6CF20DD737E00498BC9 /* EventAPIClient.swift */,
+				81ADF6CD20DD63B700498BC9 /* NetworkHelper.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		81E2FA2E20E6EB6600608656 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				81D31C5220D693460004268F /* AppDelegate.swift */,
+				81D31C5920D6934A0004268F /* Assets.xcassets */,
+				81D31C5B20D6934A0004268F /* LaunchScreen.storyboard */,
+			);
+			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -161,6 +204,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81E2FA2920E6E6B400608656 /* seeEventsTableViewCell.swift in Sources */,
 				81D31C5520D693460004268F /* CalendarVC.swift in Sources */,
 				81ADF6D420DEF01200498BC9 /* CalenderCell.swift in Sources */,
 				81D31C6920D72E4D0004268F /* WeekdayView.swift in Sources */,
@@ -170,8 +214,8 @@
 				81ADF6CE20DD63B700498BC9 /* NetworkHelper.swift in Sources */,
 				81ADF6D220DD740700498BC9 /* EventModel.swift in Sources */,
 				81D31C6720D72CBC0004268F /* MonthView.swift in Sources */,
-				81E2FA2520E2EC5200608656 /* createEventView.swift in Sources */,
-				81E2FA2120E173C600608656 /* SeeEvents.swift in Sources */,
+				81E2FA2520E2EC5200608656 /* CreateEventView.swift in Sources */,
+				81E2FA2120E173C600608656 /* SeeEventsCreated.swift in Sources */,
 				81E2FA2720E3F3F800608656 /* CreateEventViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

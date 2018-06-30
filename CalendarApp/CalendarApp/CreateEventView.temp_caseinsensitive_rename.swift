@@ -8,7 +8,7 @@
 
 import UIKit
 
-class createEventView: UIView {
+class CreateEventView: UIView {
 
       lazy var eventDescription: UITextView = {
         let textView = UITextView()

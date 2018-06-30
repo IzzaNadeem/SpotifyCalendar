@@ -14,6 +14,7 @@ enum AppError: Error {
     case badResponseCode(code: Int)
     case cannotParseJSON(rawError: Error)
     case noInternet
+    case noResponse
     case other(rawError: Error)
 }
 
@@ -22,8 +23,8 @@ class NetworkHelper {
     static let manager = NetworkHelper()
     private let session = URLSession(configuration: .default)
     
-    func performDataTask(with url: URL, completionHandler: @escaping (Data) -> Void, errorHandler: @escaping (Error) -> Void) {
-        session.dataTask(with: url) { (data, response, error) in
+    func performDataTask(with urlRequest: URLRequest, completionHandler: @escaping (Data) -> Void, errorHandler: @escaping (Error) -> Void) {
+        session.dataTask(with: urlRequest) { (data, response, error) in
             DispatchQueue.main.async{
                 if let error = error as? URLError {
                     print(error)
@@ -36,16 +37,24 @@ class NetworkHelper {
                     return
                 }
                 
-                if let response = response as? HTTPURLResponse {
-                    if response.statusCode != 200 {
-                        print("Error: \(response.statusCode)")
-                        errorHandler(AppError.badResponseCode(code: response.statusCode))
-                    }
-                }
-                
                 if let data = data {
                     completionHandler(data)
                 }
+            }
+            }.resume()
+    }
+    
+    func performDataTask(with request: URLRequest, completionResponse: @escaping (URLResponse) -> Void, errorHandler: @escaping (Error) -> Void) {
+        self.session.dataTask(with: request){(data: Data?, response: URLResponse?, error: Error?) in
+            DispatchQueue.main.async {
+                guard let response = response else {
+                    errorHandler(AppError.noResponse)
+                    return
+                }
+                if let error = error {
+                    errorHandler(error)
+                }
+                completionResponse(response)
             }
             }.resume()
     }
