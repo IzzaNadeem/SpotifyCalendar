@@ -50,24 +50,33 @@ func postEventToServer(event: Event, completionHandler: @escaping (URLResponse) 
         }
         NetworkHelper.manager.performDataTask(with: urlRequest, completionHandler: completion, errorHandler: errorHandler)
     }
+    
+    func getAllEvents(completionHandler: @escaping ([Int: [Event]]) -> Void, errorHandler: @escaping (Error) -> Void) {
+        let strURL = "http://localhost:8000/events/"
+        guard let url = URL(string: strURL) else {
+           return errorHandler(AppError.badURL(url: strURL))
+        }
+        let urlRequest = URLRequest(url: url)
+        var eventsDict = [Int: [Event]]()
+        let completion: (Data) -> Void = {(data: Data) in
+            do {
+                let events = try JSONDecoder().decode([Event].self, from: data)
+                for event in events {
+                    if let eventSoFar = eventsDict[event.day] {
+                        var eventsToAdd: [Event] = eventSoFar
+                        eventsToAdd.append(event)
+                        eventsDict.updateValue(eventsToAdd, forKey: event.day)
+                    } else {
+                        eventsDict[event.day] = [event]
+                    }
+                }
+                completionHandler(eventsDict)
+            } catch {
+                errorHandler(AppError.cannotParseJSON(rawError: error))
+            }
+            
+        }
+        NetworkHelper.manager.performDataTask(with: urlRequest, completionHandler: completion, errorHandler: errorHandler)
+    }
 }
 
-
-//here is where you're create a "note" change it to event here
-// note_routes.js
-//module.exports = function(app, db) {
-//    app.get('/notes/:id', (req, res) => {
-//
-//        });
-//    app.post('/notes', (req, res) => {
-//        const note = { text: req.body.body, title: req.body.title };
-//        db.collection('notes').insert(note, (err, result) => { //HERE DB.COLLECTION('event')
-//            if (err) {
-//                res.send({ 'error': 'An error has occurred' });
-//            } else {
-//                res.send(result.ops[0]);
-//            }
-//            });
-//        });
-//};
-//

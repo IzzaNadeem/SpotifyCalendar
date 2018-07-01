@@ -46,11 +46,7 @@ class CalenderView: UIView, UICollectionViewDelegate, UICollectionViewDataSource
         initializeView()
     }
     
-    var currentSelectedDate: Int? {
-        didSet {
-           
-        }
-    }
+     var currentSelectedDate: Int?
     
     func initializeView() {
         currentMonthIndex = Calendar.current.component(.month, from: Date())
@@ -110,6 +106,7 @@ class CalenderView: UIView, UICollectionViewDelegate, UICollectionViewDataSource
        
         let lbl = cell?.subviews[1] as! UILabel
         lbl.textColor = Style.activeCellLblColor
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

@@ -11,8 +11,8 @@ import Foundation
 struct Event: Codable {
     var _id: String?
     var description: String
-    var startTime: Double
-    var endTime: Double
+    var startTime: String
+    var endTime: String
     var day: Int
     var month: Int
     var year: Int

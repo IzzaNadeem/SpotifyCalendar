@@ -10,9 +10,9 @@ import UIKit
 
 class SeeCreatedEventsView: UIView {
 
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-     //   self.backgroundColor=UIColor.red
         setupViews()
     }
     
@@ -21,17 +21,20 @@ class SeeCreatedEventsView: UIView {
     }
     
     func setupViews() {
-        
+        self.addSubview(eventTableView)
+        eventTableView.topAnchor.constraint(equalTo: topAnchor).isActive=true
+        eventTableView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive=true
+        eventTableView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive=true
+        eventTableView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive=true
+        eventTableView.translatesAutoresizingMaskIntoConstraints=false
     }
     
     lazy var eventTableView: UITableView = {
         let tv = UITableView()
-        
-        tv.register(UITableViewCell.self, forCellReuseIdentifier: "seeEventsCell")
-    
+        tv.register(seeEventsTableViewCell.self, forCellReuseIdentifier: "seeEventsCell")
+        tv.backgroundColor = UIColor.blue
         return tv
     }()
     
     
 }
-

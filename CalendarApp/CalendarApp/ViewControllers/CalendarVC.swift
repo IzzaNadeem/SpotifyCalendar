@@ -21,13 +21,28 @@ class CalendarVC: UIViewController {
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add Event", style: .plain, target: self, action: #selector(addAnEvent(sender:)))
         self.navigationItem.rightBarButtonItem?.isEnabled = false
-        calenderView.delegate = self
+        calenderView.delegate = self //self is CalenderVC which has been delegate
+        self.seeCreatedEventsView.eventTableView.dataSource = self
+        loadEvents()
     }
     
+    var events = [Int: [Event]]() {
+        didSet {
+            seeCreatedEventsView.eventTableView.reloadData()
+        }
+    }
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         calenderView.myCollectionView.collectionViewLayout.invalidateLayout()
+    }
+    
+    private func loadEvents() {
+        EventAPIClient.manager.getAllEvents(completionHandler: { (eventDict) in
+            self.events = eventDict
+        }) { (error) in
+            print(error)
+        }
     }
     
     func setupViews() {
@@ -45,7 +60,6 @@ class CalendarVC: UIViewController {
         seeCreatedEventsView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor).isActive=true
         seeCreatedEventsView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive=true
         seeCreatedEventsView.translatesAutoresizingMaskIntoConstraints = false
-//        seeCreatedEventsView.backgroundColor = UIColor.red
     }
    
     @objc func addAnEvent(sender: UIButton) {
@@ -53,6 +67,7 @@ class CalendarVC: UIViewController {
         destination.day = calenderView.currentSelectedDate
         destination.month = 6
         destination.year = 2018
+        destination.delegate = self 
         navigationController?.pushViewController(destination, animated: true)
         
     }
@@ -65,6 +80,46 @@ extension CalendarVC: EnableSubmitDelegate {
     }
 }
 
-//extension CalendarVC: UITableViewDataSource, UITableViewDelegate {
-//    
-//}
+extension CalendarVC: CreateEventViewControllerDelegate {
+    func didCreateEvent() {
+        loadEvents()
+    }
+}
+
+extension CalendarVC: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        guard let unwrappedCurrentSelectedDate = calenderView.currentSelectedDate else {
+            return "Day Events"
+        }
+        return "June \(unwrappedCurrentSelectedDate), 2018"
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let UnwrappedcurrentSelectedDate = calenderView.currentSelectedDate else {
+            return 0
+        }
+        return (events[UnwrappedcurrentSelectedDate] ?? []).count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let eventCell = tableView.dequeueReusableCell(withIdentifier: "seeEventsCell") as! seeEventsTableViewCell
+        let eventCell = tableView.dequeueReusableCell(withIdentifier: "seeEventsCell") as! seeEventsTableViewCell
+        guard let unwrappedCurrentSelectDate = calenderView.currentSelectedDate else {
+            return UITableViewCell()
+        }
+        guard let eventsOnSelectedDate = events[unwrappedCurrentSelectDate] else {
+            return UITableViewCell()
+        }
+        let event = eventsOnSelectedDate[indexPath.row]
+        eventCell.eventDescription.text = event.description
+        eventCell.endTime.text = event.endTime
+        eventCell.startTime.text = event.startTime
+        
+        
+        return eventCell
+    }
+    
+}
+
+
+

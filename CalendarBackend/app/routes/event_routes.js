@@ -15,9 +15,9 @@ app.post('/events', (req, res) => {
     const event = { description: req.body.description, 
                     startTime: String(req.body.startTime), 
                     endTime: String(req.body.endTime), 
-                    day: req.body.day, 
-                    month: req.body.month, 
-                    year: req.body.year};
+                    day: parseInt(req.body.day), 
+                    month: parseInt(req.body.month), 
+                    year: parseInt(req.body.year)};
     db.collection('events').insert(event, (err, result) => {
       if (err) { 
         res.send({ 'error': 'An error has occurred' }); 
