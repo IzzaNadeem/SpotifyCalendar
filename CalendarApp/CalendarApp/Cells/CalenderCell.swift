@@ -19,7 +19,6 @@ class dateCVCell: UICollectionViewCell {
     }
     
     func setupViews() {
-        
         addSubview(dateLabel)
         dateLabel.topAnchor.constraint(equalTo: topAnchor).isActive=true
         dateLabel.leftAnchor.constraint(equalTo: leftAnchor).isActive=true

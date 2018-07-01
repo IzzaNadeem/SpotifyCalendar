@@ -112,8 +112,8 @@ extension CalendarVC: UITableViewDataSource {
         }
         let event = eventsOnSelectedDate[indexPath.row]
         eventCell.eventDescription.text = event.description
-        eventCell.endTime.text = event.endTime
-        eventCell.startTime.text = event.startTime
+        eventCell.endTime.text = "endTime: \(event.endTime)"
+        eventCell.startTime.text = " startTime: \(event.startTime)"
         
         
         return eventCell
