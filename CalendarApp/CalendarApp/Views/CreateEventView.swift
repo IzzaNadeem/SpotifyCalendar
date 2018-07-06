@@ -23,7 +23,7 @@ class CreateEventView: UIView {
     
     lazy var startTime: UILabel = {
         let dn = UILabel()
-        dn.text = "Start Time" //should be changed in table view
+        dn.text = "Start Time"
         dn.textAlignment = .center
         dn.textColor = UIColor.darkGray
         dn.font = UIFont(name: "HelveticaNeue-Medium", size: 17)
@@ -33,7 +33,7 @@ class CreateEventView: UIView {
     
     lazy var endTime: UILabel = {
         let dn = UILabel()
-        dn.text = "End Time" //should be changed in table view
+        dn.text = "End Time"
         dn.textAlignment = .center
         dn.textColor = UIColor.darkGray
         dn.font = UIFont(name: "HelveticaNeue-Medium", size: 17)

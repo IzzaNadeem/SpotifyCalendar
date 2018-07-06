@@ -32,6 +32,7 @@ class CalenderView: UIView, UICollectionViewDelegate, UICollectionViewDataSource
     var presentYear = 0
     var todaysDate = 0
     var firstWeekDayOfMonth = 0   //(Sunday-Saturday 1-7)
+    var currentSelectedDate: Int?
     var delegate: EnableSubmitDelegate?
     
     override init(frame: CGRect) {
@@ -39,14 +40,6 @@ class CalenderView: UIView, UICollectionViewDelegate, UICollectionViewDataSource
         
         initializeView()
     }
-    
-    convenience init() {
-        self.init()
-        
-        initializeView()
-    }
-    
-     var currentSelectedDate: Int?
     
     func initializeView() {
         currentMonthIndex = Calendar.current.component(.month, from: Date())

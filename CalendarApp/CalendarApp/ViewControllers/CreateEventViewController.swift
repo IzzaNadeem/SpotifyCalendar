@@ -10,11 +10,9 @@ import UIKit
 protocol CreateEventViewControllerDelegate: class {
     func didCreateEvent()
 }
-class CreateEventViewController: UIViewController {
-
-    var createEventView = CreateEventView()
+class CreateEventViewController: UIViewController, UITextViewDelegate {
     
-    private lazy var createEvent = CreateEventView(frame: self.view.safeAreaLayoutGuide.layoutFrame)
+    private lazy var createEventView = CreateEventView(frame: self.view.safeAreaLayoutGuide.layoutFrame)
     
     var event: Event?
     var day: Int?
@@ -24,13 +22,20 @@ class CreateEventViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubview(createEvent)
+        view.addSubview(createEventView)
+        createEventView.eventDescription.delegate = self
         createEventView.eventDescription.text = "Enter Description"
     self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Submit", style: .plain, target: self, action: #selector(submitButtonTapped(sender:)))
     }
     
-    
-   
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        textView.text = ""
+    }
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = "Enter Event Description"
+        }
+    }
     
     @objc func submitButtonTapped(sender:UIButton) {
         guard let day = day, let month = month, let year = year else {
