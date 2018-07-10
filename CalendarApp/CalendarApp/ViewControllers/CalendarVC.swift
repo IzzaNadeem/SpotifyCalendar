@@ -56,9 +56,9 @@ class CalendarVC: UIViewController {
         calenderView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 12).isActive=true
         calenderView.heightAnchor.constraint(equalToConstant: 365).isActive=true
         seeCreatedEventsView.topAnchor.constraint(equalTo: calenderView.bottomAnchor).isActive = true
-        seeCreatedEventsView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor).isActive = true
-        seeCreatedEventsView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor).isActive=true
-        seeCreatedEventsView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive=true
+        seeCreatedEventsView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        seeCreatedEventsView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive=true
+        seeCreatedEventsView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive=true
         seeCreatedEventsView.translatesAutoresizingMaskIntoConstraints = false
     }
    

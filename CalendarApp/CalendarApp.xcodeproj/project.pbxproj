@@ -10,7 +10,7 @@
 		81ADF6CE20DD63B700498BC9 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81ADF6CD20DD63B700498BC9 /* NetworkHelper.swift */; };
 		81ADF6D020DD737E00498BC9 /* EventAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81ADF6CF20DD737E00498BC9 /* EventAPIClient.swift */; };
 		81ADF6D220DD740700498BC9 /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81ADF6D120DD740700498BC9 /* EventModel.swift */; };
-		81ADF6D420DEF01200498BC9 /* CalenderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81ADF6D320DEF01100498BC9 /* CalenderCell.swift */; };
+		81ADF6D420DEF01200498BC9 /* dateCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81ADF6D320DEF01100498BC9 /* dateCVCell.swift */; };
 		81D31C5320D693460004268F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D31C5220D693460004268F /* AppDelegate.swift */; };
 		81D31C5520D693460004268F /* CalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D31C5420D693460004268F /* CalendarVC.swift */; };
 		81D31C5A20D6934A0004268F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81D31C5920D6934A0004268F /* Assets.xcassets */; };
@@ -22,13 +22,14 @@
 		81E2FA2520E2EC5200608656 /* CreateEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E2FA2420E2EC5200608656 /* CreateEventView.swift */; };
 		81E2FA2720E3F3F800608656 /* CreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E2FA2620E3F3F800608656 /* CreateEventViewController.swift */; };
 		81E2FA2920E6E6B400608656 /* seeEventsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E2FA2820E6E6B400608656 /* seeEventsTableViewCell.swift */; };
+		81F5EAD120F436430025538E /* StyleSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F5EAD020F436430025538E /* StyleSheet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		81ADF6CD20DD63B700498BC9 /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
 		81ADF6CF20DD737E00498BC9 /* EventAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventAPIClient.swift; sourceTree = "<group>"; };
 		81ADF6D120DD740700498BC9 /* EventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventModel.swift; sourceTree = "<group>"; };
-		81ADF6D320DEF01100498BC9 /* CalenderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalenderCell.swift; sourceTree = "<group>"; };
+		81ADF6D320DEF01100498BC9 /* dateCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dateCVCell.swift; sourceTree = "<group>"; };
 		81D31C4F20D693460004268F /* CalendarApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalendarApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81D31C5220D693460004268F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81D31C5420D693460004268F /* CalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVC.swift; sourceTree = "<group>"; };
@@ -42,6 +43,7 @@
 		81E2FA2420E2EC5200608656 /* CreateEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventView.swift; sourceTree = "<group>"; };
 		81E2FA2620E3F3F800608656 /* CreateEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventViewController.swift; sourceTree = "<group>"; };
 		81E2FA2820E6E6B400608656 /* seeEventsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = seeEventsTableViewCell.swift; sourceTree = "<group>"; };
+		81F5EAD020F436430025538E /* StyleSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleSheet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,7 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				81E2FA2820E6E6B400608656 /* seeEventsTableViewCell.swift */,
-				81ADF6D320DEF01100498BC9 /* CalenderCell.swift */,
+				81ADF6D320DEF01100498BC9 /* dateCVCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -119,6 +121,7 @@
 			children = (
 				81ADF6D120DD740700498BC9 /* EventModel.swift */,
 				81ADF6CF20DD737E00498BC9 /* EventAPIClient.swift */,
+				81F5EAD020F436430025538E /* StyleSheet.swift */,
 				81ADF6CD20DD63B700498BC9 /* NetworkHelper.swift */,
 			);
 			path = Models;
@@ -206,7 +209,7 @@
 			files = (
 				81E2FA2920E6E6B400608656 /* seeEventsTableViewCell.swift in Sources */,
 				81D31C5520D693460004268F /* CalendarVC.swift in Sources */,
-				81ADF6D420DEF01200498BC9 /* CalenderCell.swift in Sources */,
+				81ADF6D420DEF01200498BC9 /* dateCVCell.swift in Sources */,
 				81D31C6920D72E4D0004268F /* WeekdayView.swift in Sources */,
 				81D31C5320D693460004268F /* AppDelegate.swift in Sources */,
 				81ADF6D020DD737E00498BC9 /* EventAPIClient.swift in Sources */,
@@ -217,6 +220,7 @@
 				81E2FA2520E2EC5200608656 /* CreateEventView.swift in Sources */,
 				81E2FA2120E173C600608656 /* SeeEventsCreated.swift in Sources */,
 				81E2FA2720E3F3F800608656 /* CreateEventViewController.swift in Sources */,
+				81F5EAD120F436430025538E /* StyleSheet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

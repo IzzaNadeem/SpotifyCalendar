@@ -2,4 +2,70 @@
 <Bucket
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CalendarApp/Models/EventAPIClient.swift"
+            timestampString = "552792287.555775"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "postEventToServer(event:completionHandler:errorHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CalendarApp/Models/EventAPIClient.swift"
+            timestampString = "552792287.556187"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "postEventToServer(event:completionHandler:errorHandler:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CalendarApp.EventAPIClient.postEventToServer(event: CalendarApp.Event, completionHandler: (__ObjC.URLResponse) -&gt; (), errorHandler: (Swift.Error) -&gt; ()) -&gt; ()"
+                  moduleName = "CalendarApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/c4q/Desktop/Unit8:9:10/SpotifyCalendar/CalendarApp/CalendarApp/Models/EventAPIClient.swift"
+                  timestampString = "552875616.390842"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "1970">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__ObjC.URLResponse) -&gt; () in CalendarApp.EventAPIClient.postEventToServer(event: CalendarApp.Event, completionHandler: (__ObjC.URLResponse) -&gt; (), errorHandler: (Swift.Error) -&gt; ()) -&gt; ()"
+                  moduleName = "CalendarApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/c4q/Desktop/Unit8:9:10/SpotifyCalendar/CalendarApp/CalendarApp/Models/EventAPIClient.swift"
+                  timestampString = "552875616.393303"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "22">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

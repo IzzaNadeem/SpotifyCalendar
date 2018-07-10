@@ -53,7 +53,4 @@ class CreateEventViewController: UIViewController, UITextViewDelegate {
         }, errorHandler: { print($0) })
         self.navigationController?.popViewController(animated: true)
     }
-    
-
-    
 }
