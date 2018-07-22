@@ -77,6 +77,7 @@ class CalendarVC: UIViewController {
 extension CalendarVC: EnableSubmitDelegate {
     func enableSubmitButton() {
         navigationItem.rightBarButtonItem?.isEnabled = true
+        loadEvents()
     }
 }
 
