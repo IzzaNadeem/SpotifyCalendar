@@ -60,6 +60,6 @@ class seeEventsTableViewCell: UITableViewCell {
         endTime.leadingAnchor.constraint(equalTo: leadingAnchor).isActive=true
         endTime.trailingAnchor.constraint(equalTo: trailingAnchor).isActive=true
         endTime.translatesAutoresizingMaskIntoConstraints=false
-        
+        endTime.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive=true
     }
 }

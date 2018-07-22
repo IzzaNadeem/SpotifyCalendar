@@ -53,8 +53,9 @@ class NetworkHelper {
                 }
                 if let error = error {
                     errorHandler(error)
+                } else {
+                    completionResponse(response)
                 }
-                completionResponse(response)
             }
             }.resume()
     }

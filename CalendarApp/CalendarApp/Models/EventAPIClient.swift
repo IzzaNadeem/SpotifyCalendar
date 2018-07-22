@@ -42,7 +42,7 @@ func postEventToServer(event: Event, completionHandler: @escaping (URLResponse) 
         let completion: (Data) -> Void = {(data: Data) in
             do {
                 let event = try JSONDecoder().decode(Event.self, from: data)
-                completionHandler(event)
+                completionHandler(event) //this completionhandler is calling get eventWithId completionHandler
             }
             catch {
                 errorHandler(AppError.cannotParseJSON(rawError: error))

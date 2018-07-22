@@ -42,7 +42,8 @@ class CreateEventViewController: UIViewController, UITextViewDelegate {
             print("error here")
             return
         }
-        let startTime = String(createEventView.startTimePicker.date.timeIntervalSince1970)
+        let startTime = String(createEventView.startTimePicker.date.timeIntervalSince1970) //NSDATEFORMATTER //NSlocale //dateFormatter.dateStyle = .medium
+        //dateFormatter.timeStyle = .none
         let endTime = String(createEventView.endTimePicker.date.timeIntervalSince1970)
         
         
